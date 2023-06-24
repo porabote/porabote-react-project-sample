@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6dd230d3-3fc5-4db8-9f5b-f618000e5e41" name="PoraboteTodo">
+        <fileTransfer rootFolder="/var/www/porabote/data/www/porabote-todo-client" accessType="SFTP" host="77.222.63.31" port="22" sshConfigId="59334faa-3fe5-4610-820c-0d7a53d073d3" sshConfig="porabote@77.222.63.31:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

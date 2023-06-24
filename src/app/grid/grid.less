@@ -1,0 +1,112 @@
+.prb-grid-wrap {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+  position: relative;
+  left: -9px;
+}
+.prb-grid-hover {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: visible !important;
+  position: relative;
+  left: 9px;
+  padding-bottom: 20px;
+}
+
+.prb-grid {
+  display: grid;
+  font-family: 'Roboto Light';
+  font-size: 13px;
+}
+.prb-grid.head:hover { background: none; }
+.prb-grid:hover > .prb-grid__item { background: #eee; }
+.prb-grid.head .prb-grid__item {
+  font-family: 'Roboto Medium';
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 10px;
+}
+.prb-grid-hover::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+.prb-grid-hover::-webkit-scrollbar-thumb {
+  background-color: #b8b8b8;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 0;  /* creates padding around scroll thumb */
+  max-height: 3px;
+}
+
+
+.prb-grid-hover::-webkit-scrollbar {
+  height: 6px;
+  width: 0px;
+  background: #b1b1b1;
+}
+
+.prb-grid-hover::-webkit-scrollbar-thumb {
+  background: #8c8c8c;
+  -webkit-border-radius: 1ex;
+}
+
+.prb-grid-hover::-webkit-scrollbar-corner {
+  background: #8c8c8c;
+}
+
+
+
+.prb-grid__item {
+  padding: 10px;
+  border-bottom: 1px solid #f7f7f7;
+  min-width: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prb-grid__item .word-break,
+.prb-grid_list__item.word-break,
+.word-break {
+  word-break: break-all;
+}
+
+.prb-grid__item .post-info {}
+.prb-grid__item .post-fio, .prb-grid__item .cell-item_name {
+  font-family: 'Roboto Medium';
+  display: block;
+}
+.prb-grid__item .cell-item_bold {
+  font-family: 'Roboto Medium';
+}
+
+.cell-item_describe {
+  text-overflow: ellipsis;
+  overflow: visible;
+  max-height: 3000px;
+  height: 900px;
+  white-space: nowrap;
+}
+
+.prb-grid__item .cell-info {}
+.prb-grid__item .cell-item_title {
+  font-family: 'Roboto Medium';
+  display: block;
+}
+
+.prb-grid_list__item.sup {
+  color: #737f8c;
+  padding-left: 0;
+}
+
+
+
+
+
+.prb-grid__link {
+  font-family: 'Roboto Medium';
+  color: #1a1a1a;
+}
+.prb-grid__link:hover {border-bottom: 1px solid #1a1a1a;}
+
+
+.mark-self { border-left: 3px solid #23a0f9; }
+.mark-sign { border-left: 3px solid #3bc444; }

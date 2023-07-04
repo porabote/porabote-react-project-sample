@@ -1,4 +1,4 @@
-import {configs} from "./configs";
+const configs = require('./configs');
 
 const path = require("path");
 const webpack = require("webpack");

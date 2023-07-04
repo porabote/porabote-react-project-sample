@@ -8,8 +8,7 @@ export interface FormContextInterface {
 };
 
 const FormContext = createContext<FormContextInterface>({
-  setAttribute(name: string, number: number): void {
-  },
+  setAttribute(name: string, number: number): void {},
   entity: null,
   submit: () => {}
 });

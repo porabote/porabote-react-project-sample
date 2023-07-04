@@ -5,25 +5,27 @@ import Entity, {IEntity} from "../models/entity";
 import "./Form.less";
 
 interface FormProps {
-  method: string;
-  model: IModel,
-  entity: IEntity,
-  children: React.ReactNode[],
+  model: IModel;
+  entity: IEntity;
+  setEntity?: () => IEntity;
+  children: React.ReactNode[];
   onSubmit?: (entity: IEntity) => {};
+  initValues?: any[];
 }
 
-const Form = ({model, initValues, setEntity, children, onSubmit, method = "POST"}: FormProps) => {
+const Form = ({
+                model,
+                initValues,
+                children,
+                onSubmit,
+                setEntity,
+              }: FormProps) => {
 
   const [entity, setFormEntity] = useState(null);
   const [formKey, setFormKey] = useState(null);
-
-  // const updateFormEntity = (entity) => {console.log(entity.attributes);
-  //   setFormEntity(entity);
-  // }
-
+  const [preloadText, setPreloadText] = useState("");
 
   try {
-
     useEffect(() => {
       initEntity();
     }, []);
@@ -36,12 +38,10 @@ const Form = ({model, initValues, setEntity, children, onSubmit, method = "POST"
         entity = new Entity(model, initValues);
         await entity.loadRecord();
       }
-
       setFormEntity(entity);
     }
 
     const submit = () => {
-
       if (typeof onSubmit == "function") {
         onSubmit(entity);
       } else {
@@ -49,22 +49,26 @@ const Form = ({model, initValues, setEntity, children, onSubmit, method = "POST"
       }
     }
 
-    const setAttribute = (attributeName, value, mode?: string) => {
+    const setAttribute = (attributeName: string, value: any, mode?: string): void => {
 
       if (!mode) mode = 'merge';
 
       entity.setAttribute(attributeName, value, mode);
-      setFormKey(Math.random() * 1000); // For form rerender
+      setFormKey(Math.random() * 1000);
     }
 
-    if (!entity) return <span>Загрузка</span>;
+    if (!entity) {
+      setPreloadText("Загрузка");
+    } else {
+      setPreloadText("");
+    }
 
     return (
       <FormProvider value={{
         entity,
         setAttribute,
-        // updateFormEntity,
         submit,
+        preloadText,
       }}>
         {children}
       </FormProvider>

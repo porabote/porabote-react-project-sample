@@ -1,16 +1,16 @@
 'use strict';
-import {configs} from "../configs/configs";
+const configs = require('../configs/configs');
 
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
-const path = require('path')
-const http = require('http')
+const path = require('path');
+const http = require('http');
 
-const webpack = require('webpack')
-const webpackDevServer = require('webpack-dev-server')
+const webpack = require('webpack');
+const webpackDevServer = require('webpack-dev-server');
 
-const configFactory = require('../config/webpack.config.js')
+const configFactory = require('../configs/webpack.config.js');
 
 function build() {
 
@@ -33,7 +33,7 @@ function build() {
     devServer.listen(PORT, process.env.DOMAIN, err => {
       console.log(`Dev server listening on port ${configs.port_dev}`);
       if (err) {
-         console.log(err)
+         console.log(err);
       }
     });
 
@@ -44,16 +44,3 @@ function build() {
   })
 
 }
-
-// let buildPromise = build()
-//
-// buildPromise.then(res => {
-//   //  console.log(res);
-// })
-//
-// buildPromise.catch((error) => {
-//
-//   console.log('Server wasn`t started!');
-//   return
-//
-// })
